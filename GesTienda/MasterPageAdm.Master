@@ -1,0 +1,92 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPageAdm.Master.cs" Inherits="Prueba.MasterPageAdm" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Tienda</title>
+    <link href="~/Estilos/HojaEstilo.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <br />
+            <div id="cabecera">
+               <div id="cabecera1">
+                  <br />
+                  comerciodaw.com &nbsp;
+               </div>
+               <div id="cabecera2">
+                   <br />
+                   &nbsp;&nbsp;TIENDA ONLINE - SHOPPING DAW<br />
+                   <br />
+               </div>
+               <div id="cabecera3">
+                   Rol Administrador: 
+                   <asp:Label ID="lblDatosUsuario" runat="server" CssClass="verticalMitad"></asp:Label> &nbsp; &nbsp;
+                   <asp:Button ID="btnCerrar" runat="server" Text="Cerrar sesión" CssClass="verticalMitad" OnClick="btnCerrar_Click" />
+               </div>
+            </div>
+            <div id="cuerpo">
+               <div id="menu" style="background:#d0d0d0">
+                   <asp:TreeView ID="TreeView1" runat="server" ImageSet="Arrows">
+                       <Nodes>
+                           <asp:TreeNode Text="Inicio" Value="Inicio" NavigateUrl="~/InicioAdmin.aspx"></asp:TreeNode>
+                           <asp:TreeNode Expanded="False" SelectAction="Expand" Text="Productos" Value="Productos">
+                               <asp:TreeNode Text="Mantener productos" Value="Mantener productos" NavigateUrl="~/ProductosMantener.aspx"></asp:TreeNode>
+                           </asp:TreeNode>
+                           <asp:TreeNode Expanded="False" SelectAction="Expand" Text="Ventas" Value="Ventas">
+                               <asp:TreeNode Text="Pedidos por cliente" Value="Pedidos por cliente" NavigateUrl="~/PedidosPorCliente.aspx"></asp:TreeNode>
+                           </asp:TreeNode>
+                           <asp:TreeNode Expanded="False" SelectAction="Expand" Text="Clientes" Value="Clientes">
+                               <asp:TreeNode Text="Clientes por ciudad" Value="Clientes por ciudad"></asp:TreeNode>
+                           </asp:TreeNode>
+                           <asp:TreeNode Expanded="False" SelectAction="Expand" Text="Usuarios" Value="Usuarios">
+                               <asp:TreeNode Text="Mantener usuarios" Value="Mantener usuarios"></asp:TreeNode>
+                           </asp:TreeNode>
+                       </Nodes>
+                   </asp:TreeView>
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+               </div>
+               <div id="contenido">
+                   <asp:ContentPlaceHolder ID="InfoContenido" runat="server">
+                   </asp:ContentPlaceHolder>
+               </div>
+            </div>
+            <div id="pie">
+                <br />
+                <br />
+                © Desarrollo de Aplicaciones Web interactivas con Acceso a Datos
+                <br />
+                IES Mare Nostrum (Alicante)
+            </div>
+        </div>
+    </form>
+</body>
+</html>
