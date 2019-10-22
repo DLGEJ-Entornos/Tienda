@@ -1,0 +1,88 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Prueba.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Tienda</title>
+    <link href="~/Estilos/HojaEstilo.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <br />
+            <div id="cabecera">
+               <div id="cabecera1">
+                  <br />
+                  comerciodaw.com &nbsp;
+               </div>
+               <div id="cabecera2">
+                   <br />
+                   &nbsp;&nbsp;TIENDA ONLINE - SHOPPING DAW<br />
+                   <br />
+               </div>
+               <div id="cabecera3">
+                   Usuario: 
+                   <asp:Label ID="lblDatosUsuario" runat="server" CssClass="verticalMitad"></asp:Label> &nbsp; &nbsp;
+                   <asp:Button ID="btnCerrar" runat="server" Text="Cerrar sesión" CssClass="verticalMitad" OnClick="btnCerrar_Click" />
+               </div>
+            </div>
+            <div id="cuerpo">
+               <div id="menu">
+                   <asp:TreeView ID="TreeView1" runat="server" ImageSet="Arrows">
+                       <Nodes>
+                           <asp:TreeNode Text="Inicio" Value="Inicio" NavigateUrl="~/InicioUsuario.aspx"></asp:TreeNode>
+                           <asp:TreeNode Expanded="False" SelectAction="Expand" Text="Productos" Value="Productos">
+                               <asp:TreeNode Text="Tipos de productos" Value="Ver Productos" NavigateUrl="~/TiposVer.aspx"></asp:TreeNode>
+                               <asp:TreeNode NavigateUrl="~/ProductosPorTipoVer.aspx" Text="Productos por Tipo" Value="Ver Productos por Tipo"></asp:TreeNode>
+                               <asp:TreeNode NavigateUrl="~/ProductosVer.aspx" Text="Productos" Value="Productos"></asp:TreeNode>
+                           </asp:TreeNode>
+                           <asp:TreeNode Expanded="False" SelectAction="Expand" Text="Compras" Value="Clientes">
+                               <asp:TreeNode Text="Mis Pedidos" Value="Mis Pedidos"></asp:TreeNode>
+                           </asp:TreeNode>
+                       </Nodes>
+                   </asp:TreeView>
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+                   <br />
+               </div>
+               <div id="contenido">
+                   <asp:ContentPlaceHolder ID="InfoContenido" runat="server">
+                   </asp:ContentPlaceHolder>
+               </div>
+            </div>
+            <div id="pie">
+                <br />
+                <br />
+                © Desarrollo de Aplicaciones Web interactivas con Acceso a Datos
+                <br />
+                IES Mare Nostrum (Alicante)
+            </div>
+        </div>
+    </form>
+</body>
+</html>
