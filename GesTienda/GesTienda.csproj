@@ -75,6 +75,7 @@
     <Content Include="Estilos\HojaEstilo.css" />
     <Content Include="Global.asax" />
     <Content Include="ProductosPorTipoVer.aspx" />
+    <Content Include="ProductosVer.aspx" />
     <Content Include="TiposVer.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -102,6 +103,13 @@
     </Compile>
     <Compile Include="ProductosPorTipoVer.aspx.designer.cs">
       <DependentUpon>ProductosPorTipoVer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductosVer.aspx.cs">
+      <DependentUpon>ProductosVer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductosVer.aspx.designer.cs">
+      <DependentUpon>ProductosVer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TiposVer.aspx.cs">
