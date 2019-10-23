@@ -75,6 +75,7 @@
     <Content Include="Estilos\HojaEstilo.css" />
     <Content Include="Global.asax" />
     <Content Include="PedidosPorCliente.aspx" />
+    <Content Include="ProductosMantener.aspx" />
     <Content Include="ProductosPorTipoVer.aspx" />
     <Content Include="ProductosVer.aspx" />
     <Content Include="TiposVer.aspx" />
@@ -111,6 +112,13 @@
     </Compile>
     <Compile Include="PedidosPorCliente.aspx.designer.cs">
       <DependentUpon>PedidosPorCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductosMantener.aspx.cs">
+      <DependentUpon>ProductosMantener.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductosMantener.aspx.designer.cs">
+      <DependentUpon>ProductosMantener.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductosPorTipoVer.aspx.cs">
       <DependentUpon>ProductosPorTipoVer.aspx</DependentUpon>
