@@ -56,7 +56,7 @@
 
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [IdProducto], [DesPro], [PrePro] FROM [PRODUCTO]"></asp:SqlDataSource>
     <div id="dProd">
-        <asp:GridView ID="grdProductos" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="IdProducto" DataSourceID="SqlDataSource1">
+        <asp:GridView ID="grdProductos" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="IdProducto" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="grdProductos_SelectedIndexChanged">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                 <asp:CommandField ShowSelectButton="True" />
@@ -97,13 +97,13 @@
         <asp:Label ID="lblIdTipo" runat="server" Text="Tipo Producto: "></asp:Label>
         <asp:DropDownList ID="ddlIdTipo" CssClass="box" Enabled="False" runat="server" DataSourceID="SqlDataSource3" DataTextField="DesTip" DataValueField="IdTipo"></asp:DropDownList> <br />
 
-        <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" Visible="True" />
+        <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" Visible="True" OnClick="btnNuevo_Click1" />
         <asp:Button ID="btnEditar" runat="server" Text="Editar" Visible="False" />
         <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" Visible="False" />
-        <asp:Button ID="btnInsertar" runat="server" Text="Insertar" Visible="False" />
+        <asp:Button ID="btnInsertar" runat="server" Text="Insertar" Visible="False" OnClick="btnInsertar_Click" />
         <asp:Button ID="btnModificar" runat="server" Text="Modificar" Visible="False" />
         <asp:Button ID="btnBorrar" runat="server" Text="Borrar" Visible="False" />
-        <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Visible="False" />
+        <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" Visible="False" OnClick="btnCancelar_Click" />
 
     </div>
 
