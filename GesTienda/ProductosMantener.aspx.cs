@@ -184,5 +184,19 @@ namespace GesTienda
             grdProductos.SelectedIndex = -1;
             FnDeshabilitarControles();
         }
+
+        protected void btnEditar_Click(object sender, EventArgs e)
+        {
+            //habilitar todos controles de campos menos txtIdProducto
+            //hacer visible botones MODIFICAR y CANCELAR
+            //codigo para sentencia UPDATE (en BOTON MODIFICAR)
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            //eliminar registro selec en gridview de la tabla PRODUCTO para ello:
+                // Hacer visibles botones : BORRAR Y CANCELAR
+                //en BORRAR_OnCLICK: sentencia DELETE 
+        }
     }
 }

@@ -98,8 +98,8 @@
         <asp:DropDownList ID="ddlIdTipo" CssClass="box" Enabled="False" runat="server" DataSourceID="SqlDataSource3" DataTextField="DesTip" DataValueField="IdTipo"></asp:DropDownList> <br />
 
         <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" Visible="True" OnClick="btnNuevo_Click1" />
-        <asp:Button ID="btnEditar" runat="server" Text="Editar" Visible="False" />
-        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" Visible="False" />
+        <asp:Button ID="btnEditar" runat="server" Text="Editar" Visible="False" OnClick="btnEditar_Click" />
+        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" Visible="False" OnClick="btnEliminar_Click" />
         <asp:Button ID="btnInsertar" runat="server" Text="Insertar" Visible="False" OnClick="btnInsertar_Click" />
         <asp:Button ID="btnModificar" runat="server" Text="Modificar" Visible="False" />
         <asp:Button ID="btnBorrar" runat="server" Text="Borrar" Visible="False" />
