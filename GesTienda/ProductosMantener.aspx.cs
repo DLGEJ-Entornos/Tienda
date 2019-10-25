@@ -188,8 +188,15 @@ namespace GesTienda
         protected void btnEditar_Click(object sender, EventArgs e)
         {
             //habilitar todos controles de campos menos txtIdProducto
+            txtDesPro.Enabled = true;
+            txtPrePro.Enabled = true;
+            ddlIdUnidad.Enabled = true;
+            ddlIdTipo.Enabled = true;
             //hacer visible botones MODIFICAR y CANCELAR
+            btnModificar.Visible = true;
+            btnCancelar.Visible = true;
             //codigo para sentencia UPDATE (en BOTON MODIFICAR)
+
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
@@ -197,6 +204,11 @@ namespace GesTienda
             //eliminar registro selec en gridview de la tabla PRODUCTO para ello:
                 // Hacer visibles botones : BORRAR Y CANCELAR
                 //en BORRAR_OnCLICK: sentencia DELETE 
+        }
+
+        protected void btnModificar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
