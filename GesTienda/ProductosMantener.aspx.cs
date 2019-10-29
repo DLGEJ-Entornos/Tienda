@@ -35,7 +35,8 @@ namespace GesTienda
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
             
-        }
+        }
+
         protected void grdProductos_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblMensajes.Text = "";
@@ -87,7 +88,8 @@ namespace GesTienda
                     lblMensajes.Text = StrError;
                     return;
                 }
-            }
+            }
+
         }
         protected void btnNuevo_Click1(object sender, EventArgs e)
         {
@@ -114,7 +116,8 @@ namespace GesTienda
             string StrNumero = Convert.ToString(Numero);
             string stNumeroConPunto = String.Format("{0}", StrNumero.Replace(',', '.'));
             return (stNumeroConPunto);
-        }
+        }
+
         protected void btnInsertar_Click(object sender, EventArgs e)
         {
             lblMensajes.Text = "";
@@ -187,6 +190,7 @@ namespace GesTienda
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
+            lblMensajes.Text = "";
             //habilitar todos controles de campos menos txtIdProducto
             txtDesPro.Enabled = true;
             txtPrePro.Enabled = true;
@@ -195,7 +199,9 @@ namespace GesTienda
             //hacer visible botones MODIFICAR y CANCELAR
             btnModificar.Visible = true;
             btnCancelar.Visible = true;
+            btnEditar.Visible = false;
             //codigo para sentencia UPDATE (en BOTON MODIFICAR)
+
 
         }
 
@@ -208,7 +214,58 @@ namespace GesTienda
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
+            string StrIdProducto, StrDesc, StrIdUnidad, StrIdTipo;
+            decimal dcPrecio;
+            StrIdProducto = txtIdProducto.Text;
+            StrDesc = txtDesPro.Text;
 
+            string PrecioConSim = txtPrePro.Text.Trim(new Char[] { '€' });
+            dcPrecio = Convert.ToDecimal(PrecioConSim);
+            StrIdUnidad = ddlIdUnidad.SelectedItem.Text;
+            StrIdTipo = ddlIdTipo.SelectedItem.Value;
+
+            string StrCadenaConexion = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
+            string StrComandoSql = "UPDATE PRODUCTO " +
+                    "SET DesPro = '" + StrDesc + "', PrePro = '" + FnComaPorPunto(dcPrecio) + "', IdUnidad = '" + StrIdUnidad +
+                    "', IdTipo = '" + StrIdTipo + "'" +
+                    " WHERE PRODUCTO.IdProducto = '" + StrIdProducto + "';";
+
+            using (SqlConnection conexion = new SqlConnection(StrCadenaConexion))
+            {
+                try
+                {
+                    conexion.Open();
+                    SqlCommand comando = conexion.CreateCommand();
+                    comando.CommandText = StrComandoSql;
+                    int inRegistrosAfectados = comando.ExecuteNonQuery();
+                    if (inRegistrosAfectados == 1)
+                        lblMensajes.Text = "Registro modificado correctamente";
+                    else
+                        lblMensajes.Text = "Error al insertar el registro";
+                    btnNuevo.Visible = true;
+                    btnEditar.Visible = false;
+                    btnEliminar.Visible = false;
+                    btnInsertar.Visible = false;
+                    btnModificar.Visible = false;
+                    btnBorrar.Visible = false;
+                    btnCancelar.Visible = false;
+                }
+                catch (SqlException ex)
+                {
+                    string StrError = "<p>Se han producido errores en el acceso a la base de datos.</p>";
+                    StrError = StrError + "<div>Código: " + ex.Number + "</div>";
+                    StrError = StrError + "<div>Descripción: " + ex.Message + "</div>";
+                    lblMensajes.Text = StrError;
+                    return;
+                }
+            }
+            grdProductos.DataBind(); // Vuelve a enlazar el GridVIew para que se actualicen los datos
+            grdProductos.SelectedIndex = -1;
+            FnDeshabilitarControles();
+            //UPDATE Customers
+            //SET ContactName = 'Alfred Schmidt', City = 'Frankfurt'
+            //WHERE CustomerID = 1;
         }
     }
 }
