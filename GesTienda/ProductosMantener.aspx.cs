@@ -128,11 +128,42 @@ namespace GesTienda
             return (stNumeroConPunto);
         }
 
-
-        private bool validos (string idProd, string des, string precio)
+        private bool valEspecifPre(string precio)
         {
+            bool valido = false;
+            //Valida que sea decimal o int positivo teniendo en cuenta , por . y €
+            if (!string.IsNullOrEmpty(precio) && !Char.IsSymbol(precio[0]) && !Char.IsSymbol(precio[precio.Length - 1]))
+            {
+                //precio solo puede tener digitos y 1 punto o coma
+                int signoDecimal = 0;
+                for (int i = 0; i < precio.Length && signoDecimal <= 1; i++)
+                {
+                    if (precio[i] == '.' || precio[i] == ',')
+                    {
+                        signoDecimal++;
+                    }
+                }
+                if (signoDecimal <= 1)
+                {
+                    string precioSinSym = precio.Trim(new Char[] { ',', ' ', '.' }); //le meto aqui TRIM € ??
+                    bool soloDigitosPos = true;
+                    for (int i = 0; i < precioSinSym.Length && soloDigitosPos; i++)
+                    {
+                        if (!Char.IsDigit(precioSinSym[i]))
+                        {
+                            soloDigitosPos = false;
+                        }
+                    }
+                    if (soloDigitosPos && Convert.ToDecimal(precioSinSym) >= 0) //Conv.ToDec es adecuado? mejor 'toNumber'?
+                        valido = true;
+                }
+            }
+            return valido;
+        }
+        private bool validos (string idProd, string des, string precio)
+        {   //idProd: 1234-123  des:no simbol  precio:Enteros,Decimales Positivos
+
             bool todosValidos = false, valP = false, valD = false, valPre = false;
-            //idProd: 1234-123  des:¿no simbol?  precio:Enteros,Decimales Positivos  idUnid
             if (idProd.Length == 8 && idProd[4] == '-')
             {
                 string preGuion = idProd.Substring(0, 4);
@@ -144,14 +175,12 @@ namespace GesTienda
                     valP = true;
                 }
             }
-            if (!string.IsNullOrEmpty(des) && des.All(Char.IsSymbol))
+            if (!string.IsNullOrEmpty(des) && des.All(Char.IsSymbol)) //MAL comprobación sin Symbolos, usa .contains
             {
                 valD = true;
             }
-            if (!string.IsNullOrEmpty(precio)) //Valida que sea decimal o int positivo teniendo en cuenta , por . y €
-            {
-                valPre = true;
-            }
+            valPre = valEspecifPre(precio); //ME FALTA TRIM(€) ?!
+
             if (valP && valD && valPre)
             {
                 todosValidos = true;
