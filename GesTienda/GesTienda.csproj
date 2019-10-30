@@ -72,6 +72,7 @@
       <DependentUpon>Tienda.mdf</DependentUpon>
     </Content>
     <Content Include="ControlError.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="Estilos\HojaEstilo.css" />
     <Content Include="Global.asax" />
     <Content Include="PedidosPorCliente.aspx" />
@@ -88,6 +89,13 @@
     </Compile>
     <Compile Include="ControlError.aspx.designer.cs">
       <DependentUpon>ControlError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

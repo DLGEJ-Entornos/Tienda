@@ -49,7 +49,6 @@ E:\2ºDAW\SERVIDOR\tema5\Tienda\GesTienda\bin\roslyn\VBCSCompiler.exe
 E:\2ºDAW\SERVIDOR\tema5\Tienda\GesTienda\bin\roslyn\VBCSCompiler.exe.config
 E:\2ºDAW\SERVIDOR\tema5\Tienda\GesTienda\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 E:\2ºDAW\SERVIDOR\tema5\Tienda\GesTienda\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\2ºDAW\SERVIDOR\tema5\Tienda\GesTienda\obj\Debug\GesTienda.csprojAssemblyReference.cache
 E:\2ºDAW\SERVIDOR\tema5\Tienda\GesTienda\obj\Debug\GesTienda.csproj.CoreCompileInputs.cache
 E:\2ºDAW\SERVIDOR\tema5\Tienda\GesTienda\obj\Debug\GesTienda.csproj.CopyComplete
 E:\2ºDAW\SERVIDOR\tema5\Tienda\GesTienda\obj\Debug\GesTienda.dll
@@ -166,3 +165,4 @@ A:\DAW\SERVIDOR\tema5\Tienda\GesTienda\obj\Debug\GesTienda.csproj.CoreCompileInp
 A:\DAW\SERVIDOR\tema5\Tienda\GesTienda\obj\Debug\GesTienda.csproj.CopyComplete
 A:\DAW\SERVIDOR\tema5\Tienda\GesTienda\obj\Debug\GesTienda.dll
 A:\DAW\SERVIDOR\tema5\Tienda\GesTienda\obj\Debug\GesTienda.pdb
+E:\2ºDAW\SERVIDOR\tema5\Tienda\GesTienda\obj\Debug\GesTienda.csprojAssemblyReference.cache
