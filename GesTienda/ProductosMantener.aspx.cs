@@ -145,7 +145,7 @@ namespace GesTienda
                 }
                 if (signoDecimal <= 1)
                 {
-                    string precioSinSym = precio.Trim(new Char[] { ',', ' ', '.' }); //le meto aqui TRIM € ??
+                    string precioSinSym = precio.Trim(new Char[] {',', ' ', '.'}); //NO FUNC. Le meto aqui TRIM € ??
                     bool soloDigitosPos = true;
                     for (int i = 0; i < precioSinSym.Length && soloDigitosPos; i++)
                     {
@@ -175,7 +175,7 @@ namespace GesTienda
                     valP = true;
                 }
             }
-            if (!string.IsNullOrEmpty(des) && des.All(Char.IsSymbol)) //MAL comprobación sin Symbolos, usa .contains
+            if (!string.IsNullOrEmpty(des) && !des.All(Char.IsSymbol)) //MAL comprobación sin Symbolos, usa .contains
             {
                 valD = true;
             }
