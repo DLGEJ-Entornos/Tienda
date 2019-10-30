@@ -7,6 +7,16 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 
+/*TODO:
+    1- Al crear NUEVO producto, no tiene sentido que si cambias el TIPO de producto de la selectedList no se modifique la unidad y
+        siga con la unidad para Alimentación.
+    2- Al Cancelar durante Nuevo o Modificación no se "reinicie" la selección , que vuelva a al ultimo elemento seleccionado de la 
+        GridView (con variables de sesión).
+    3- Al eliminar productos que son apuntados por una FK desde la tabla DETALLES da error de eliminación; o no dejar eliminar o
+        hacer una eliminación primero del registro de la FK.
+    4- La parte común de Conexión y sentecia SQL hacerla en Func pasandole la cadena de conexión y string para resultado positivo.
+    5- VALIDA campos antes de Insertar/Modificar
+     */
 namespace GesTienda
 {
     public partial class ProductosMantener : System.Web.UI.Page
@@ -118,13 +128,56 @@ namespace GesTienda
             return (stNumeroConPunto);
         }
 
+
+        private bool validos (string idProd, string des, string precio)
+        {
+            bool todosValidos = false, valP = false, valD = false, valPre = false;
+            //idProd: 1234-123  des:¿no simbol?  precio:Enteros,Decimales Positivos  idUnid
+            if (idProd.Length == 8 && idProd[4] == '-')
+            {
+                string preGuion = idProd.Substring(0, 4);
+                string postGuion = idProd.Substring(5, 3);
+
+                if (!string.IsNullOrEmpty(preGuion) && preGuion.All(Char.IsDigit)
+                    && !string.IsNullOrEmpty(postGuion) && postGuion.All(Char.IsDigit))
+                {
+                    valP = true;
+                }
+            }
+            if (!string.IsNullOrEmpty(des) && des.All(Char.IsSymbol))
+            {
+                valD = true;
+            }
+            if (!string.IsNullOrEmpty(precio)) //Valida que sea decimal o int positivo teniendo en cuenta , por . y €
+            {
+                valPre = true;
+            }
+            if (valP && valD && valPre)
+            {
+                todosValidos = true;
+            }
+            return todosValidos;
+        }
         protected void btnInsertar_Click(object sender, EventArgs e)
         {
             lblMensajes.Text = "";
-            String strIdProducto, strDescripcion, strIdUnidad, strIdTipo;
+            String strIdProducto, strDescripcion, strIdUnidad, strIdTipo, strPrecio;
             Decimal dcPrecio;
+
+            //Validación de campos (para Insertar y Modificar)
             strIdProducto = txtIdProducto.Text;
             strDescripcion = txtDesPro.Text;
+            strPrecio = txtPrePro.Text;
+
+            if (validos(strIdProducto, strDescripcion, strPrecio))
+            {
+                // PRODECER A LA INSERCIÓN
+            }
+            else
+            {
+                //LANZAR ERROR DE VALIDACIÓN DE INPUTS
+            }
+
             dcPrecio = Convert.ToDecimal(txtPrePro.Text);
             strIdUnidad = ddlIdUnidad.SelectedItem.Text;
             strIdTipo = ddlIdTipo.SelectedItem.Value;
@@ -200,6 +253,8 @@ namespace GesTienda
             btnModificar.Visible = true;
             btnCancelar.Visible = true;
             btnEditar.Visible = false;
+            btnNuevo.Visible = false;
+            btnEliminar.Visible = false;
             //codigo para sentencia UPDATE (en BOTON MODIFICAR)
 
 
@@ -208,8 +263,15 @@ namespace GesTienda
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
             //eliminar registro selec en gridview de la tabla PRODUCTO para ello:
-                // Hacer visibles botones : BORRAR Y CANCELAR
-                //en BORRAR_OnCLICK: sentencia DELETE 
+            // Hacer visibles botones : BORRAR Y CANCELAR
+            lblMensajes.Text = "";
+            btnBorrar.Visible = true;
+            btnCancelar.Visible = true;
+            btnEditar.Visible = false;
+            btnModificar.Visible = false;
+            btnNuevo.Visible = false;
+            btnEliminar.Visible = false;
+            //en BORRAR_OnCLICK: sentencia DELETE 
         }
 
         protected void btnModificar_Click(object sender, EventArgs e)
@@ -262,10 +324,48 @@ namespace GesTienda
             }
             grdProductos.DataBind(); // Vuelve a enlazar el GridVIew para que se actualicen los datos
             grdProductos.SelectedIndex = -1;
-            FnDeshabilitarControles();
-            //UPDATE Customers
-            //SET ContactName = 'Alfred Schmidt', City = 'Frankfurt'
-            //WHERE CustomerID = 1;
+        }
+
+        protected void btnBorrar_Click(object sender, EventArgs e)
+        {
+            string StrIdProducto = txtIdProducto.Text;
+
+            string StrCadenaConexion = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
+            string StrComandoSql = "DELETE FROM PRODUCTO " +
+                    "WHERE IdProducto = '" + StrIdProducto + "';";
+
+            using (SqlConnection conexion = new SqlConnection(StrCadenaConexion))
+            {
+                try
+                {
+                    conexion.Open();
+                    SqlCommand comando = conexion.CreateCommand();
+                    comando.CommandText = StrComandoSql;
+                    int inRegistrosAfectados = comando.ExecuteNonQuery();
+                    if (inRegistrosAfectados == 1)
+                        lblMensajes.Text = "Eliminado correctamente";
+                    else
+                        lblMensajes.Text = "Error al insertar el registro";
+                    btnNuevo.Visible = true;
+                    btnEditar.Visible = false;
+                    btnEliminar.Visible = false;
+                    btnInsertar.Visible = false;
+                    btnModificar.Visible = false;
+                    btnBorrar.Visible = false;
+                    btnCancelar.Visible = false;
+                }
+                catch (SqlException ex)
+                {
+                    string StrError = "<p>Se han producido errores en el acceso a la base de datos.</p>";
+                    StrError = StrError + "<div>Código: " + ex.Number + "</div>";
+                    StrError = StrError + "<div>Descripción: " + ex.Message + "</div>";
+                    lblMensajes.Text = StrError;
+                    return;
+                }
+            }
+            grdProductos.DataBind(); // Vuelve a enlazar el GridVIew para que se actualicen los datos
+            grdProductos.SelectedIndex = -1;
         }
     }
 }
