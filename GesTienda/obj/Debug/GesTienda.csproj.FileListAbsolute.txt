@@ -104,7 +104,6 @@ D:\2ºDAW\SERVIDOR\tema5\Tienda\GesTienda\bin\roslyn\VBCSCompiler.exe
 D:\2ºDAW\SERVIDOR\tema5\Tienda\GesTienda\bin\roslyn\VBCSCompiler.exe.config
 D:\2ºDAW\SERVIDOR\tema5\Tienda\GesTienda\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\2ºDAW\SERVIDOR\tema5\Tienda\GesTienda\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\2ºDAW\SERVIDOR\tema5\Tienda\GesTienda\obj\Debug\GesTienda.csprojAssemblyReference.cache
 D:\2ºDAW\SERVIDOR\tema5\Tienda\GesTienda\obj\Debug\GesTienda.csproj.CoreCompileInputs.cache
 D:\2ºDAW\SERVIDOR\tema5\Tienda\GesTienda\obj\Debug\GesTienda.csproj.CopyComplete
 D:\2ºDAW\SERVIDOR\tema5\Tienda\GesTienda\obj\Debug\GesTienda.dll

@@ -5,8 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="./Estilos/Default.css" rel="stylesheet" />
     <title>Login GesTienda</title>
-    <style>
+    <!--style>
         #topMsg{
             height:2em;
             text-align:right;
@@ -38,7 +39,7 @@
         #tit{
             margin-bottom:0.5em;
         }
-    </style>
+    </style-->
 </head>
 <body>
     <form id="form1" runat="server">
@@ -48,7 +49,7 @@
         <h2>TIENDA ONLINE - SHOPPING DAW</h2>
         <div id="main">
             <h1>GesTienda</h1>
-                <asp:Login ID="Login1" runat="server">
+                <asp:Login ID="Login1" runat="server" OnAuthenticate="Login1_Authenticate">
                     <LayoutTemplate>
                         <table style="border-collapse:collapse;">
                             <tr>
