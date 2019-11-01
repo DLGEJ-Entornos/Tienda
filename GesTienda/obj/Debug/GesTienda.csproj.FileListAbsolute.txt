@@ -165,3 +165,4 @@ A:\DAW\SERVIDOR\tema5\Tienda\GesTienda\obj\Debug\GesTienda.csproj.CopyComplete
 A:\DAW\SERVIDOR\tema5\Tienda\GesTienda\obj\Debug\GesTienda.dll
 A:\DAW\SERVIDOR\tema5\Tienda\GesTienda\obj\Debug\GesTienda.pdb
 E:\2ºDAW\SERVIDOR\tema5\Tienda\GesTienda\obj\Debug\GesTienda.csprojAssemblyReference.cache
+D:\2ºDAW\SERVIDOR\tema5\Tienda\GesTienda\obj\Debug\GesTienda.csprojAssemblyReference.cache

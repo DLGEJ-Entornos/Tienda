@@ -1,3 +1,83 @@
 ﻿body {
-    background-color: red;
+    background-color: #c6e7ff;
+    margin: 0px;
+}
+#topMsg{
+    background-color:darkblue;
+    height:30px;
+}
+#topMsg p {
+    color:white;
+    float: right;
+    line-height:10%;
+}
+h2{
+    background-color:cornflowerblue;
+    height:50px;
+    margin-top: 0px;
+    text-align:center;
+    font-size:2.4em;
+}
+h1{
+    text-align:center;
+}
+#borde {
+    padding: 0.5em;
+    border: 1px solid #0094ff;
+    width: 350px;
+    /*max-width: 450px;*/
+    margin: 0 auto;
+}
+#Login1{
+    /*border: 1px solid green;*/
+    margin: 0 auto;
+    width:310px;
+    max-width:320px;
+    /*padding: 3px;*/
+}
+.filaCampo {
+    clear: both;
+    float: right;
+    /*border: 1px solid purple;*/
+    width: 100%;
+    padding-top: 0.5em;
+}
+.filaCampo span {
+    /*overflow:hidden;*/
+    /*TEMPORAL, SACALOS ABAJO DEL
+        FORM
+    */
+}
+/*#LoginButton, #RememberMe, #checkb {
+    clear: both;
+    display:inline-flex;
+    margin: 0 auto;
+}*/
+/*#LoginButton{
+    color:red;
+}*/
+#checkb {
+    clear: both;
+    display: table;
+    margin: 0 auto;
+    margin-top: 0.5em;
+}
+.center {
+    clear: both;
+    display: block;
+    margin: 0 auto;
+    margin-top:5em;
+}
+.tbox{
+    float:right;
+    margin-left:0px;
+    /*width:10px;*/
+}
+#avisos{
+    padding-top:1em;
+    text-align:center;
+}
+#avisos > * {
+    display:block;
+    color:orangered;
 }
