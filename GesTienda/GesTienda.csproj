@@ -76,6 +76,8 @@
     <Content Include="Estilos\Default.css" />
     <Content Include="Estilos\HojaEstilo.css" />
     <Content Include="Global.asax" />
+    <Content Include="InicioAdmin.aspx" />
+    <Content Include="InicioUsuario.aspx" />
     <Content Include="PedidosPorCliente.aspx" />
     <Content Include="ProductosMantener.aspx" />
     <Content Include="ProductosPorTipoVer.aspx" />
@@ -100,6 +102,20 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="InicioAdmin.aspx.cs">
+      <DependentUpon>InicioAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InicioAdmin.aspx.designer.cs">
+      <DependentUpon>InicioAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InicioUsuario.aspx.cs">
+      <DependentUpon>InicioUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InicioUsuario.aspx.designer.cs">
+      <DependentUpon>InicioUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>

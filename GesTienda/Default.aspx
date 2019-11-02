@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="GesTienda.Default" %>
+<%@ OutputCache Duration="1" VaryByParam="None" %>
 
 <!DOCTYPE html>
 
@@ -23,14 +24,11 @@
                     <div class="filaCampo">
                         <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">Nombre de usuario:</asp:Label>
                         <asp:TextBox ID="UserName" CssClass="tbox" runat="server"></asp:TextBox>
-                        <%--<asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="El nombre de usuario es obligatorio." ToolTip="El nombre de usuario es obligatorio." ValidationGroup="Login1">*</asp:RequiredFieldValidator>--%>
                     </div>
                     <div class="filaCampo">
                         <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Contraseña:</asp:Label>
                         <asp:TextBox ID="Password" CssClass="tbox" runat="server" TextMode="Password"></asp:TextBox>
-                        <%--<asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="La contraseña es obligatoria." ToolTip="La contraseña es obligatoria." ValidationGroup="Login1">*</asp:RequiredFieldValidator>--%>
                     </div>
-
                     <asp:Button ID="LoginButton" CssClass="center" runat="server" CommandName="Login" Text="Inicio de sesión" ValidationGroup="Login1" />
                     <div id="checkb">
                         <asp:CheckBox ID="RememberMe" runat="server" Text="" />

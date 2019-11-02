@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageAdm.Master" AutoEventWireup="true" CodeBehind="ProductosMantener.aspx.cs" Inherits="GesTienda.ProductosMantener" %>
+<%@ OutputCache Duration="1" VaryByParam="None" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         body{

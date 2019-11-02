@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="ProductosPorTipoVer.aspx.cs" Inherits="GesTienda.ProductosPorTipoVer" %>
+<%@ OutputCache Duration="1" VaryByParam="None" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         h1,h3{
